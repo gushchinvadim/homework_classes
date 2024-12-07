@@ -50,18 +50,17 @@ some_student.courses_attached += ['Git']
 some_reviewer = Reviewer('Some', 'Buddy')
 some_reviewer.courses_attached += ['Python']
  
-some_lectorer = Lecturer('Some', 'Buddy')
-some_lectorer.courses_attached += ['Git']
-some_lectorer.courses_in_progress +=['Git']
+some_lecturer = Lecturer('Some', 'Buddy')
+some_lecturer.courses_attached += ['Git']
+some_lecturer.courses_in_progress +=['Git']
 
 some_reviewer.rate_hw(some_student, 'Python', 10)
 some_reviewer.rate_hw(some_student, 'Python', 9)
 some_reviewer.rate_hw(some_student, 'Python', 5)
 
-some_student.lectorer_rate(some_lectorer, 'Git', 8)
-some_student.lectorer_rate(some_lectorer, 'Git', 10)
-some_student.lectorer_rate(some_lectorer, 'Git', 7)
+some_student.lectorer_rate(some_lecturer, 'Git', 8)
+some_student.lectorer_rate(some_lecturer, 'Git', 10)
+some_student.lectorer_rate(some_lecturer, 'Git', 7)
 
 print(some_student.grades)
-
-print(some_lectorer.rates)
+print(some_lecturer.rates)
