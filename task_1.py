@@ -3,15 +3,15 @@ class Student:
         self.name = name
         self.surname = surname
         self.gender = gender
-        # self.finished_courses = []
-        # self.courses_in_progress = []
-        # self.grades = {}
+   
         
 class Mentor:
     def __init__(self, name, surname):
         self.name = name
         self.surname = surname
-        self.courses_attached = []
+    def disp_name(self):
+        print(f" Имя: {self.name}")
+        print(f" Фамилия: {self.surname}")
 
 class Lecturer(Mentor):
     pass
@@ -19,4 +19,6 @@ class Lecturer(Mentor):
 
 class Reviewer(Mentor):
     pass
-        
+
+mentor_1 = Reviewer('Иван', 'Иванов') #проверка наследования
+mentor_1.disp_name()
