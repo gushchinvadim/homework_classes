@@ -18,7 +18,19 @@ class Student:
                 lecturer.rates[course] = [rate]
         else:
             return 'Ошибка'
-   
+    def __str__(self):
+        self.value = value
+        if 'Pithon' in self.grades:
+             value = self.grades.pop('Pithon')
+             print(f" Python average: {(round(sum(value)/len(value)),2)}")
+        else:
+             value = self.rgades.pop('Git')
+             return f" Git average: {(round(sum(value)/len(value)),2)}"
+        
+      
+
+
+
 class Mentor:
     def __init__(self, name, surname):
         self.name = name
@@ -89,22 +101,23 @@ some_reviewer.rate_hw(some_student, 'Git', 8)
 some_reviewer.rate_hw(some_student, 'Git', 8)
 some_reviewer.rate_hw(some_student, 'Git', 7)
 
-some_reviewer_1.rate_hw(some_student_1, 'Git', 10)
-some_reviewer_1.rate_hw(some_student_1, 'Git', 9)
-some_reviewer_1.rate_hw(some_student_1, 'Git', 5)
-
 some_reviewer_1.rate_hw(some_student_1, 'Python', 8)
 some_reviewer_1.rate_hw(some_student_1, 'Python', 9)
 some_reviewer_1.rate_hw(some_student_1, 'Python', 7)
 
+some_reviewer_1.rate_hw(some_student_1, 'Git', 10)
+some_reviewer_1.rate_hw(some_student_1, 'Git', 9)
+some_reviewer_1.rate_hw(some_student_1, 'Git', 5)
+
 some_student.lecturer_rate(some_lecturer, 'Python', 8)
+some_student.lecturer_rate(some_lecturer, 'Git', 10)
 some_student.lecturer_rate(some_lecturer, 'Git', 10)
 some_student.lecturer_rate(some_lecturer, 'Python', 7)
 
 some_student_1.lecturer_rate(some_lecturer_1, 'Python', 9)
-some_student_1.lecturer_rate(some_lecturer_1, 'Python', 10)
+some_student_1.lecturer_rate(some_lecturer_1, 'Python', 9)
+some_student_1.lecturer_rate(some_lecturer_1, 'Git', 10)
 some_student_1.lecturer_rate(some_lecturer_1, 'Git', 6)
-
 
 
 print(some_student.grades)
@@ -113,11 +126,38 @@ print(some_student_1.grades)
 print(some_lecturer.rates)
 print(some_lecturer_1.rates)
 
-# print(some_reviewer)
-# print(some_lecturer)
-# print(some_student)
 
-# print(some_reviewer_1)
-# print(some_lecturer_1)
-# print(some_student_1)
+grades_lecturer = {'Pithon': [10,8,5]}
+grades_lecturer = {'Git': [10,8,5]}
+grades_student = {'Python': [8, 10, 7]}
+grades_student = {'Git': [8, 10, 7]}
 
+
+grades_student = {'Python': [10,8,5], 'Git': [8, 10, 7]}
+rate_lecturer = {'Python': [9,8,5], 'Git': [8, 10, 9]}
+
+value = grades_student.pop('Python')
+average = round((sum(value)/len(value)),1)
+print(f" Python average student: {average}")
+
+value_2 = grades_student.pop('Git')
+average_1 = round((sum(value_2)/len(value_2)),1)
+print(f" Git average student: {average_1}")
+
+value_lecturer = rate_lecturer.pop('Python')
+rate = round((sum(value_lecturer)/len(value_lecturer)),1)
+print(f" Python rate lecturer: {rate}")
+
+value_lecturer_1 = rate_lecturer.pop('Git')
+rate_1 = round((sum(value_lecturer_1)/len(value_lecturer_1)),1)
+print(f" Git rate lecturer: {rate_1}")
+
+if average > average_1:
+    print("Средняя оценка у студентов курса Python выше чем у курса GIT")
+elif average < average_1:
+    print("Средняя оценка у студентов курса Git выше чем у курсе Python")      
+else:
+    print:("Средние оценки по курсам одинаковые")
+
+midle_mark = (round((average + average_1)/2,2))
+print(f" Средняя оценка за домашние задания {midle_mark}")

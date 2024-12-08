@@ -1,54 +1,29 @@
 
+grades_student = {'Python': [10,8,5], 'Git': [9, 10, 7]}
+rate_lecturer = {'Python': [9,8,5], 'Git': [8, 10, 9]}
 
-# grades = {'Pithon': [10,9,5]}
+value = grades_student.pop('Python')
+average = round((sum(value)/len(value)),1)
+print(f" Python average student: {average}")
 
-# values = list(map(str, grades.values()))
+value_2 = grades_student.pop('Git')
+average_1 = round((sum(value_2)/len(value_2)),1)
+print(f" Git average student: {average_1}")
 
-# print(values)
+midle_mark = (round((average + average_1)/2,2))
+print(f" Средняя оценка за домашние задания {midle_mark}")
 
+value_lecturer = rate_lecturer.pop('Python')
+rate = round((sum(value_lecturer)/len(value_lecturer)),1)
+print(f" Python rate lecturer: {rate}")
 
-# str_1 = 0
-# str_1 = ','.join(values)
+value_lecturer_1 = rate_lecturer.pop('Git')
+rate_1 = round((sum(value_lecturer_1)/len(value_lecturer_1)),1)
+print(f" Git rate lecturer: {rate_1}")
 
-# print(str_1)
-
-
-# class Example:
-#     def __init__(self):
-#         pass
-#     def _average(self):
-grades = {'Pithon': [10,9,5]}
-total_subject_grades = 0
-count_subject_grades = 0
-for subject, value in grades:
-           total_subject_grades += sum(value)
-           count_subject_grades += len(value)
-print(total_subject_grades / count_subject_grades)
-
-
-
-
-# def overage_grades(self): return sum(self.grades)/len(self.grades)
-
-# total = 0
-# for number in str_1:
-#         total += number
-
-#         print(total)
-
-# def sum_numbers(numbers, total):
-#     total = 0
-#     for number in numbers:
-#         total += number
-#     return total
-# sum_numbers([1, 2, 3, 4, 5])
-# # 15
-# sum_numbers([])
-# # 0
-# print(total)
-
-# def sum_numbers(numbers):
-#     if len(numbers) == 0:
-#         return 0
-#     return numbers[0] + sum_numbers(numbers[1:])
-# sum_numbers([1, 2, 3, 4, 5])
+if average > average_1:
+    print("Средняя оценка у студентов курса Python выше чем у курса GIT")
+elif average < average_1:
+    print("Средняя оценка у студентов курса Git выше чем у курсе Python")      
+else:
+    print:('Средние оценки по курсам одинаковые')
