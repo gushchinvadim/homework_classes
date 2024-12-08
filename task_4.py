@@ -25,11 +25,7 @@ class Student:
              print(f" Python average: {(round(sum(value)/len(value)),2)}")
         else:
              value = self.rgades.pop('Git')
-             return f" Git average: {(round(sum(value)/len(value)),2)}"
-        
-      
-
-
+             return f" Git average: {(round(sum(value)/len(value)),2)}" 
 
 class Mentor:
     def __init__(self, name, surname):
@@ -127,14 +123,11 @@ print(some_lecturer.rates)
 print(some_lecturer_1.rates)
 
 
-grades_lecturer = {'Pithon': [10,8,5]}
-grades_lecturer = {'Git': [10,8,5]}
-grades_student = {'Python': [8, 10, 7]}
-grades_student = {'Git': [8, 10, 7]}
+rate_lecturer = some_lecturer.rates
+rate_lecturer = some_lecturer_1.rates
+grades_student = some_student.grades
+grades_student = some_student_1.grades
 
-
-grades_student = {'Python': [10,8,5], 'Git': [8, 10, 7]}
-rate_lecturer = {'Python': [9,8,5], 'Git': [8, 10, 9]}
 
 value = grades_student.pop('Python')
 average = round((sum(value)/len(value)),1)
