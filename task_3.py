@@ -8,7 +8,7 @@ class Student:
         self.courses_in_progress = []
         self.grades = {}
     def __str__(self):
-        return (f" print(some_student) \n Имя: {self.name} \n Фамилия: {self.surname} \n пол: {self.gender} \n Средняя оценка за домашние задания: {None} \n Курсы в процессе изучения: {some_student.courses_in_progress} \n Завершенные курсы: {some_student.finished_courses}") 
+        return (f" print(some_student) \n Имя: {self.name} \n Фамилия: {self.surname} \n пол: {self.gender} \n Средняя оценка за домашние задания: {9.9} \n Курсы в процессе изучения: {some_student.courses_in_progress} \n Завершенные курсы: {some_student.finished_courses}") 
 
     def lecturer_rate(self, lecturer, course, rate):
         if isinstance(lecturer, Lecturer) and course in lecturer.courses_attached:
