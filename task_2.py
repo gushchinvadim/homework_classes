@@ -4,7 +4,7 @@ class Student:
         self.surname = surname
         self.gender = gender
         self.courses_attached = []
-        # self.finished_courses = []
+        self.finished_courses = []
         self.courses_in_progress = []
         self.grades = {}
       
