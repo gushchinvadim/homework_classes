@@ -49,12 +49,21 @@ class Lecturer(Mentor):
         self.courses_attached = []
         self.courses_in_progress = []
         self.rates = {}
+    
+    def __le__(self, other):     
+        return self.middle_rate() <= other.middle_rate()
+
+    def middle_rate(self) -> float:
+        marks = self.rates.values()
+        if len(marks) > 0:
+            return sum(marks) / len(marks)
+        return 0
 
     def __str__(self):
         return (f" print(some_lecturer) \n "
                 f"Имя: {self.name} \n "
-                f"Фамилия: {self.surname}")
-
+                f"Фамилия: {self.surname} \n"
+                f"Средняя оценка за лекции:{self.middle_rate()}")
 
 class Reviewer(Mentor):
     
@@ -79,6 +88,16 @@ student_two = Student("Michail", "Ivanov", "man")
 lecturer_one = Lecturer('Nicola','Tesla')
 lecturer_two = Lecturer('Joe','Bidon')
 
+lecturer_one.courses_attached.append("Python")
+lecturer_one.courses_attached.append("Git")
+lecturer_two.courses_attached.append("Math")
+lecturer_two.courses_attached.append("Python")
+
+lecturer_one.rates["Python"] = 9
+lecturer_one.rates["Git"] = 10
+lecturer_two.rates["Math"] = 8
+lecturer_two.rates["Python"] = 10
+
 reviewer = Reviewer('Mike','Tyson')
 
 student_one.courses_in_progress.append("Math")
@@ -99,3 +118,4 @@ print(lecturer_one)
 print(reviewer)
 print(student_one)
 print(student_one < student_two)
+print(lecturer_one <= lecturer_two)

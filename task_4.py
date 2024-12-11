@@ -50,11 +50,18 @@ class Lecturer(Mentor):
         self.courses_in_progress = []
         self.rates = {}
 
+    
+    def middle_rate(self) -> float:
+        marks = self.rates.values()
+        if len(marks) > 0:
+            return sum(marks) / len(marks)
+        return 0
+
     def __str__(self):
         return (f" print(some_lecturer) \n "
                 f"Имя: {self.name} \n "
-                f"Фамилия: {self.surname}")
-
+                f"Фамилия: {self.surname} \n"
+                f"Средняя оценка за лекции:{self.middle_rate()}")
 
 class Reviewer(Mentor):
     
@@ -79,6 +86,16 @@ student_two = Student("Michail", "Ivanov", "man")
 lecturer_one = Lecturer('Nicola','Tesla')
 lecturer_two = Lecturer('Joe','Bidon')
 
+lecturer_one.courses_attached.append("Python")
+lecturer_one.courses_attached.append("Git")
+lecturer_two.courses_attached.append("Math")
+lecturer_two.courses_attached.append("Python")
+
+lecturer_one.rates["Python"] = 9
+lecturer_one.rates["Git"] = 10
+lecturer_two.rates["Math"] = 8
+lecturer_two.rates["Python"] = 10
+
 student_one.courses_in_progress.append("Math")
 student_one.courses_in_progress.append("Git")
 student_one.courses_in_progress.append("Python")
@@ -93,7 +110,7 @@ student_two.courses_in_progress.append("Git")
 student_two.grades["Math"] = 8
 student_two.grades["Git"] = 9
 
-print(student_one < student_two)
+# print(student_one < student_two)
 
 
 # для подсчета средней оценки за домашние задания по всем студентам в рамках конкретного курса
@@ -125,3 +142,24 @@ print(f"Средний балл за гит среди студентов {middl
 # для подсчета средней оценки за лекции всех лекторов в рамках курса
 # (в качестве аргумента принимаем список лекторов и название курса).
 
+def get_middle_mark_by_course_lecturers(list_lecturers: [Lecturer], name_course: str) -> float:
+    summa_marks = 0
+    count_lecturer = 0
+    for lecturer in list_lecturers:
+        if name_course in lecturer.courses_attached:
+            summa_marks += lecturer.rates[name_course]
+            count_lecturer += 1
+
+    if count_lecturer > 0:
+        return summa_marks / count_lecturer
+    return 0
+
+
+middle_mark_math = get_middle_mark_by_course_lecturers(list_lecturers=[lecturer_one, lecturer_two], name_course="Math")
+print(f"Рейтинг преподавателя по курсу математика {middle_mark_math}")
+middle_mark_initial = get_middle_mark_by_course_lecturers([lecturer_one, lecturer_two], "Введение в программирование")
+print(f"Рейтинг преподавателя по курсу Введение в программирование {middle_mark_initial}")
+middle_mark_python = get_middle_mark_by_course_lecturers([lecturer_one, lecturer_two], "Python")
+print(f"Рейтинг преподавателя по курсу Python {middle_mark_python}")
+middle_mark_git = get_middle_mark_by_course_lecturers([lecturer_one, lecturer_two], "Git")
+print(f"Рейтинг преподавателя по курсу Git {middle_mark_git}")
